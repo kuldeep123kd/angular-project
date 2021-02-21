@@ -5,7 +5,7 @@ const config = require('./config/dev');
 
 const rentalRoutes = require('./routes/rentals');
 
-mongoose.connect(config?.DB_URI).then(
+mongoose.connect(config?.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true }).then(
   () => {
     const fakeDb = new FakeDb();
     fakeDb.seedDb();
